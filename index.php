@@ -20,7 +20,7 @@
             echo  "<td>".$row["id"]."<td>";
             echo  "<td>".$row["nome"]."<td>";
             echo  "<td>".$row["saldo"]."<td>";
-            echo  "<td><a hreaf='transferencia.php'>Transferir Valor</td>";
+            echo  "<td><a hreaf='transferir.php?id=".$row["id"]."'>Transferir Valor</td>";
             echo "</tr>";
         }
 

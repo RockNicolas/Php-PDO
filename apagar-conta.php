@@ -1,18 +1,18 @@
 <?php
-    if(isset($_GET["id"])){
+	if (isset($_GET["id"])){
+		
+		$conexao = new PDO('mysql:host=localhost;dbname=curso_pdo', "root", "");
 
-        $sql = "SELECT COUNT(*) FROM contas WHERE id = :Destinado";
-        $prepareQuery = $conexão->prepare($sql);
-        $prepareQuery->bindParam(":Destinado", $_POST["txtIDD"]
-        , PDO:: PARAM_INT);
-        $prepareQuery->execute();
+		$sql = "DELETE FROM contas WHERE id = :Id";
 
-        if(count($query) > 0){
-            $sql = "SELECT id FROM contas WHERE id = ".$_POST["txtIDR"];
-            $prepareQuery = $conexão->prepare($sql);
-            $prepareQuery->bindParam(":Destinado", $_POST["txtIDD"]
-            , PDO:: PARAM_INT);
-            $prepareQuery->execute();
-        }
-    }
+		$pstmQuery = $conexao->prepare($sql);
+
+		$pstmQuery->bindParam(":Id", $_GET["id"], PDO::PARAM_INT);
+
+		$pstmQuery->execute();
+
+		if ($pstmQuery->rowCount() > 0){
+				echo "Conta apagada com sucesso!";
+		}
+	}
 ?>
